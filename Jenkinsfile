@@ -2,14 +2,14 @@ pipeline {
     agent any
 
     environment {
-        ALPACA_API_KEY = credentials('alpaca_api_key') // Use Jenkins credentials for API keys
-        ALPACA_SECRET_KEY = credentials('alpaca_secret_key')
+        ALPACA_API_KEY = credentials('ALPACA_API_KEY') // Reference the API Key
+        ALPACA_SECRET_KEY = credentials('ALPACA_SECRET_KEY') // Reference the Secret Key
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/yourusername/alpaca-trading-bot.git'
+                git branch: 'main', url: 'https://github.com/T0mT0m07/trading_bot.git'
             }
         }
 
